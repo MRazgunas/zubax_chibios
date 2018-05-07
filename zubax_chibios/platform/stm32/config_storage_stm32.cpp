@@ -27,7 +27,7 @@
  * Any FPEC issues will be detected at run time during write/erase verification.
  */
 
-#define RDP_KEY                 0x00A5
+//#define RDP_KEY                 0x00A5
 #if !defined(FLASH_KEY1)
 # define FLASH_KEY1             0x45670123
 # define FLASH_KEY2             0xCDEF89AB
@@ -46,6 +46,9 @@
 #elif defined(STM32F373xC)
 # define FLASH_SIZE            (*((uint16_t*)0x1FFFF7CC))
 # define FLASH_PAGE_SIZE        0x800
+#elif defined(STM32F302xC)
+# define FLASH_SIZE (*((uint16_t*)0x1FFFF7CC))
+# define FLASH_PAGE_SIZE 0x800
 #else
 # error Unknown device.
 #endif
